@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Joker Fade Barbershop – Barbershop București Sector 1</title>
+  <meta
+    name="description"
+    content="Joker Fade Barbershop – barbershop modern în Bucureștii Noi, Sector 1, București. Tunsori fade, tunsori masculine și aranjat barbă. Opening soon."
+  />
+  <meta
+    name="keywords"
+    content="Joker Fade Barbershop, barbershop București, barbershop Sector 1, Bucureștii Noi, fade haircut București, frizerie bărbați București"
+  />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0f0f0f" />
+
+  <meta property="og:title" content="Joker Fade Barbershop – Opening Soon" />
+  <meta
+    property="og:description"
+    content="Barbershop modern în Bucureștii Noi – Sector 1. Tunsori fade, stiluri masculine moderne și aranjat barbă."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: rgba(20, 20, 20, 0.72);
+      --panel-border: rgba(212, 175, 55, 0.2);
+      --gold: #d4af37;
+      --gold-soft: #f1d98a;
+      --text: #f5f5f5;
+      --muted: #c7c7c7;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(212, 175, 55, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 22%),
+        linear-gradient(180deg, #111 0%, #090909 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 980px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 0;
+    }
+
+    .left {
+      padding: 56px 46px 46px;
+      position: relative;
+    }
+
+    .right {
+      min-height: 420px;
+      position: relative;
+      border-left: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02)),
+        radial-gradient(circle at 70% 25%, rgba(212,175,55,0.14), transparent 26%),
+        linear-gradient(135deg, #171717 0%, #0e0e0e 100%);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 999px;
+      color: var(--gold-soft);
+      background: rgba(212, 175, 55, 0.08);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.65);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 66px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .sub {
+      margin: 18px 0 0;
+      font-size: 20px;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 650px;
+    }
+
+    .location {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 11px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: #ededed;
+      font-size: 14px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 170px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.22);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.14);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(212,175,55,0.45);
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #bdbdbd;
+    }
+
+    .section {
+      border-top: 1px solid var(--line);
+      padding: 28px 46px 36px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--gold-soft);
+    }
+
+    .feature p {
+      margin: 0;
+      color: #d0d0d0;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .visual {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+    }
+
+    .poster {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212,175,55,0.28);
+      background:
+        linear-gradient(160deg, rgba(212,175,55,0.16), rgba(212,175,55,0.02) 45%),
+        linear-gradient(180deg, #181818 0%, #0d0d0d 100%);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.35);
+    }
+
+    .poster::before,
+    .poster::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+    }
+
+    .poster::before {
+      width: 180px;
+      height: 180px;
+      top: -30px;
+      right: -20px;
+      background: rgba(212,175,55,0.18);
+    }
+
+    .poster::after {
+      width: 150px;
+      height: 150px;
+      bottom: -28px;
+      left: -10px;
+      background: rgba(212,175,55,0.09);
+    }
+
+    .poster-inner {
+      position: absolute;
+      inset: 0;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .mini-label {
+      font-size: 11px;
+      color: var(--gold-soft);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .mini-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,0.35);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 20px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .poster-center {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .poster-title {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+
+    .poster-text {
+      font-size: 14px;
+      color: #d7d7d7;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .service-tag {
+      font-size: 12px;
+      color: #f2f2f2;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .poster-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .poster-footer small {
+      display: block;
+      color: #bbbbbb;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .poster-footer strong {
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .opening {
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .footer {
+      padding: 0 46px 34px;
+      color: #9c9c9c;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .right {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        min-height: 340px;
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .left,
+      .section,
+      .footer {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .left {
+        padding-top: 30px;
+      }
+
+      .sub {
+        font-size: 17px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .poster {
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HairSalon",
+    "name":"Joker Fade Barbershop",
+    "description":"Barbershop modern în Bucureștii Noi, Sector 1, București. Tunsori fade, tunsori masculine și aranjat barbă.",
+    "areaServed":"București, Sector 1, Bucureștii Noi",
+    "sameAs":[
+      "https://www.facebook.com/jokerfadebarbershop/",
+      "https://www.instagram.com/jokerfadebarbershop/"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="hero">
+        <div class="left">
+          <div class="badge">
+            <span class="dot"></span>
+            <span>Opening Soon</span>
+          </div>
+
+          <h1>
+            Joker Fade<br />
+            <span class="gold">Barbershop</span>
+          </h1>
+
+          <p class="sub">
+            Barbershop modern în <strong>Bucureștii Noi – Sector 1</strong>,
+            construit în jurul tunsorilor fade, stilurilor masculine moderne
+            și unei experiențe curate, relaxate și premium.
+          </p>
+
+          <div class="location">
+            <span class="pill">Barbershop București</span>
+            <span class="pill">Sector 1</span>
+            <span class="pill">Bucureștii Noi</span>
+            <span class="pill">Fade haircut</span>
+          </div>
+
+          <div class="cta-row">
+            <a
+              class="btn btn-primary"
+              href="https://www.instagram.com/jokerfadebarbershop/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="https://www.facebook.com/jokerfadebarbershop/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Facebook
+            </a>
+          </div>
+
+          <p class="note">
+            Urmărește paginile oficiale pentru noutăți despre deschidere,
+            amenajare și lansarea programărilor.
+          </p>
+        </div>
+
+        <div class="right">
+          <div class="visual">
+            <div class="poster">
+              <div class="poster-inner">
+                <div class="mini-top">
+                  <div>
+                    <div class="mini-label">Joker Fade</div>
+                    <div class="mini-label" style="margin-top:6px;">București Nord</div>
+                  </div>
+                  <div class="mini-mark">✂</div>
+                </div>
+
+                <div class="poster-center">
+                  <div class="poster-title">
+                    Modern<br />Barber<br />Experience
+                  </div>
+
+                  <div class="poster-text">
+                    Un spațiu dedicat bărbaților care caută tunsori curate,
+                    fade-uri precise și o atmosferă modernă.
+                  </div>
+
+                  <div class="services">
+                    <span class="service-tag">Fade</span>
+                    <span class="service-tag">Tuns bărbați</span>
+                    <span class="service-tag">Barbă</span>
+                    <span class="service-tag">Style</span>
+                  </div>
+                </div>
+
+                <div class="poster-footer">
+                  <div>
+                    <small>Locație</small>
+                    <strong>Bucureștii Noi<br />Sector 1, București</strong>
+                  </div>
+                  <div class="opening">Coming Soon</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="feature">
+          <h3>Tunsori fade</h3>
+          <p>
+            Accent pe fade haircut, linii curate și un rezultat constant,
+            gândit pentru stilurile masculine actuale.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>Atmosferă modernă</h3>
+          <p>
+            Concept simplu și premium, construit pentru confort, atenție la
+            detalii și o experiență plăcută de la intrare până la final.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>Bucureștii Noi</h3>
+          <p>
+            Joker Fade Barbershop se pregătește pentru deschidere în zona
+            Bucureștii Noi, Sector 1, București.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer">
+        © 2026 Joker Fade Barbershop. Toate drepturile rezervate.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
